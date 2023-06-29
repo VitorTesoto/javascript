@@ -25,7 +25,11 @@
                     </div>
 
                     <div class="card-footer">
-                        Rodapé
+                        
+                        <div class="d-grid gap-2">
+                            <button onclick="verificarIdade()" class="btn btn-primary" type="button" id="executar-programa">Iniciar programa</button>
+                        </div>
+
                     </div>
 
                 </div>
@@ -38,21 +42,49 @@
         
         <script>
 
+            function verificarIdade(){
+                
+                let nome = '';
+
+                let idade = '';
+                
+                while(nome ==''){
+                    nome = window.prompt("Qual o nome do usuário?")
+                }
+                
+                
+                while(idade ==''){
+                    idade = Number(window.prompt("Qual a idade do usuário?"));
+
+                    if(isNaN(idade)){
+                        alert('Conteúdo digitado é inválido, por favor insira um número válido');
+                        idade = '';
+                    }
+                }
+
+                let dobroIdade = idade * 2;
+
+                let metadeIdade = idade / 2;
+
+                
+                let elementoNome = window.document.getElementById("nome-usuario");
+
+                elementoNome.innerHTML = `Olá ${nome}, seja bem vindo!`;
+
+                let elementoIdade = window.document.getElementById("idade-usuario");
+
+                elementoIdade.innerHTML = `A sua idade é ${idade} anos, e o dobro dela é ${dobroIdade} e a metade dela é ${metadeIdade}. `;
+
+                let elementoPrograma = window.document.getElementById("executar-programa");
+
+                elementoPrograma.innerHTML = `Programa executado, deseja executar novamente?`;
+
+                
+            }
+
             //window.alert("teste");
 
-            let nome = window.prompt("Qual o nome do usuário?")
-
-            let idade = window.prompt("Qual a idade do usuário?");
             
-            let elementoNome = window.document.getElementById("nome-usuario");
-
-            elementoNome.innerHTML = `Olá ${nome}, seja bem vindo!`;
-
-            
-            
-            let elementoIdade = window.document.getElementById("idade-usuario");
-
-            elementoIdade.innerHTML = `A sua idade é ${idade} anos, coisa fofa!`;
             /*
             let idade = window.prompt("Qual a sua idade?");
 
